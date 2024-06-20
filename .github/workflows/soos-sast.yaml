@@ -9,9 +9,9 @@ jobs:
       - name: Run SOOS SAST Analysis
         uses: soos-io/soos-sast-github-action@v1 # GET Latest Version from https://github.com/marketplace/actions/soos-sast
         with:
+          project_name: ${{github.repository}}
           client_id: ${{ secrets.SOOS_CLIENT_ID }}
           api_key: ${{ secrets.SOOS_API_KEY }}
-          project_name: ${{github.repository}}
             # Optional parameters for further customization
           directories_to_exclude: 'C:\Users\KaranKumar\Desktop\Juiceshop file\juice-shop'  # Adjust as needed
           files_to_exclude: 'C:\Users\KaranKumar\Desktop\Juiceshop file\juice-shop'        # Adjust as needed
