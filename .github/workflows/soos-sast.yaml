@@ -10,21 +10,20 @@ jobs:
 
       - name: Run SOOS SAST Analysis
         id: soos_sast
-        uses: soos-io/soos-sast-github-action@v1 # GET Latest Version from https://github.com/marketplace/actions/soos-sast
+        uses: soos-io/soos-sast-github-action@v1
         with:
           project_name: ${{github.repository}}
-          output_format: "sarif"
           client_id: ${{ secrets.SOOS_CLIENT_ID }}
           api_key: ${{ secrets.SOOS_API_KEY }}
-          log_level: 'debug' # Set to 'debug' for detailed logs
+          log_level: 'debug'
           verbose: true
 
       - name: List workspace contents for debugging
         run: ls -R /github/workspace
 
-      - name: Find and list SARIF files
+      - name: Find and list SAST files
         run: |
-          SAST_FILES=$(find /github/workspace -name '*.sarif.json')
+          SAST_FILES=$(find /github/workspace -name '*.json')
           if [ -z "$SAST_FILES" ]; then
             echo "No SAST files found."
             exit 1
