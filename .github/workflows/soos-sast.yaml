@@ -15,8 +15,18 @@ jobs:
           output_format: "sarif"
           client_id: ${{ secrets.SOOS_CLIENT_ID }}
           api_key: ${{ secrets.SOOS_API_KEY }}
-            # Optional parameters for further customization
-          # directories_to_exclude: 'C:\Users\KaranKumar\Desktop\Juiceshop file\juice-shop'  # Adjust as needed
-          # files_to_exclude: 'C:\Users\KaranKumar\Desktop\Juiceshop file\juice-shop'        # Adjust as needed
-          log_level: 'debug'                         # Set to 'debug' for detailed logs          # List the package managers used in your project
+          log_level: 'debug' # Set to 'debug' for detailed logs
           verbose: true
+
+      - name: List workspace contents for debugging
+        run: ls -R /github/workspace
+
+      - name: Find and list SARIF files
+        run: |
+          SAST_FILES=$(find /github/workspace -name '*.sarif.json')
+          if [ -z "$SAST_FILES" ]; then
+            echo "No SAST files found."
+            exit 1
+          fi
+          echo "SAST files found:"
+          echo "$SAST_FILES"
