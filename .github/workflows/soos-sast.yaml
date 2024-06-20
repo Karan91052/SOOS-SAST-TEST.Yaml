@@ -12,4 +12,8 @@ jobs:
           client_id: ${{ secrets.SOOS_CLIENT_ID }}
           api_key: ${{ secrets.SOOS_API_KEY }}
           project_name: ${{github.repository}}
-          sast_path:  'C:\Users\KaranKumar\Desktop\new-website\juice-shop'
+            # Optional parameters for further customization
+          directories_to_exclude: 'C:\Users\KaranKumar\Desktop\Juiceshop file\juice-shop'  # Adjust as needed
+          files_to_exclude: 'C:\Users\KaranKumar\Desktop\Juiceshop file\juice-shop'        # Adjust as needed
+          log_level: 'debug'                         # Set to 'debug' for detailed logs          # List the package managers used in your project
+          verbose: true
