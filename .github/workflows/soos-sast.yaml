@@ -5,11 +5,14 @@ jobs:
     name: SOOS SAST Analysis Example
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
       - name: Run SOOS SAST Analysis
         uses: soos-io/soos-sast-github-action@v1 # GET Latest Version from https://github.com/marketplace/actions/soos-sast
         with:
           project_name: ${{github.repository}}
+          output_format: "sarif"
           client_id: ${{ secrets.SOOS_CLIENT_ID }}
           api_key: ${{ secrets.SOOS_API_KEY }}
             # Optional parameters for further customization
