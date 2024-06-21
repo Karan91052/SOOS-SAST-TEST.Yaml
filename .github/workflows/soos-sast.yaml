@@ -6,7 +6,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: SOOS SAST
+      - name: Install Dependencies
+        run: |
+          cd juice-shop
+          npm install
+      - name: Run SAST Analysis
         uses: soos-io/soos-sast-github-action@v1.0.1
         with:
           client_id: ${{ secrets.SOOS_CLIENT_ID }}
