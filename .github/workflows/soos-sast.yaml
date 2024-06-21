@@ -11,5 +11,5 @@ jobs:
         with:
           client_id: ${{ secrets.SOOS_CLIENT_ID }}
           api_key: ${{ secrets.SOOS_API_KEY }}
-          project_name: "My Project Name"
-          source_code_path: "The path to start searching for SAST files."
+          project_name: ${{github.repository}}
+          source_code_path: 'C:\Users\KaranKumar\Desktop\new-website\juice-shop'
