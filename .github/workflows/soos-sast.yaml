@@ -8,8 +8,8 @@ jobs:
       - name: Run SAST Analysis
         uses: soos-io/soos-sast-github-action@v1.0.1
         with:
+          source_code_path: 'juice-shop'
           project_name: ${{ github.repository }}
-          output_format: "sarif"
           client_id: ${{ secrets.SOOS_CLIENT_ID }}
           api_key: ${{ secrets.SOOS_API_KEY }}
-          source_code_path: 'juice-shop'
+          
