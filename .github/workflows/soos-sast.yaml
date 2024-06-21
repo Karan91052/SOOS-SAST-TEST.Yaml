@@ -5,11 +5,11 @@ jobs:
     name: SOOS SAST Analysis Example
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
       - name: SOOS SAST
-        uses: soos-io/soos-sast-github-action@v1.0.1    
+        uses: soos-io/soos-sast-github-action@v1.0.1
         with:
           client_id: ${{ secrets.SOOS_CLIENT_ID }}
           api_key: ${{ secrets.SOOS_API_KEY }}
-          project_name: ${{github.repository}}
-          source_code_path: '.'
+          project_name: ${{ github.repository }}
+          source_code_path: 'juice-shop'
