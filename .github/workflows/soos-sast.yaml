@@ -12,4 +12,3 @@ jobs:
           api_key: ${{ secrets.SOOS_API_KEY }}
           project_name: "juice-shop"
           scan_mode: "baseline"
-          target_url: "http://localhost:4200/"
