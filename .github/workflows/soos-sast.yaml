@@ -12,5 +12,5 @@ jobs:
         with:
           client_id: ${{ secrets.SOOS_CLIENT_ID }}
           api_key: ${{ secrets.SOOS_API_KEY }}
-          project_name: "SAST-Project"
+          project_name: ${{github.repository}}
           source_code_path: "./juice-shop"
